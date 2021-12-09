@@ -1,116 +1,148 @@
 .container {
-  padding: 0 2rem;
-}
-
-.main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
+.imageContainer {
+  width: 400px;
 }
 
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
+.container button {
+  padding: 8px 16px;
+  font-size: 18px;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  background-color: red;
+  color: white;
+  margin: 8px;
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
+.container button:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
 }
 
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
+.selectContainer {
+  position: relative;
 }
 
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
+.selectContainer select {
+  position: relative;
+  padding: 16px 10px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid red;
+  width: 200px;
+  background-color: transparent;
+  background: transparent;
+  appearance: none;
+  font-size: 18px;
+  cursor: pointer;
 }
 
-.title,
-.description {
-  text-align: center;
+.selectContainer select:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
 }
 
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
+.selectContainer::after {
+  position: absolute;
+  top: 24px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 10px solid white;
+  border-top: 10px solid red;
+  content: '';
 }
 
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+.message::after {
+  content: 'Your secret santa is...';
+  animation-duration: 8s;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-name: message;
+  animation-timing-function: linear;
+  /*
+    This has to be here otherwise animation won't run in Chrome. Plus, the
+    animation won't run at all in Safari (classic Safari), so this provides a
+    back-up rendering for non-modern browsers.
+  */
+  content: '';
+  display: inline-block ;
 }
 
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
+.secretName {
+  opacity: 1;
+  animation-duration: 9s;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-name: secretName;
+  animation-timing-function: linear;
 }
 
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
+@keyframes message {
+  0% {
+    content: '...and your secret santa is...';
+  }
+  20% {
+    content: 'drum roll please.';
+  }
+  30% {
+    content: 'drum roll please..'
+  }
+  39% {
+    content: 'drum roll please...'
+  }
+  40% {
+    content: 'da';
+  }
+  45% {
+    content: 'dada'
+  }
+  50% {
+    content: 'dadada'
+  }
+  55% {
+    content: 'dadadada'
+  }
+  60% {
+    content: 'dadadadada'
+  }
+  65% {
+    content: 'dadadadadada'
+  }
+  70% {
+    content: 'dadadadadadada'
+  }
+  75% {
+    content: 'dadadadadadadada'
+  }
+  80% {
+    content: 'dadadadadadadadada'
+  }
+  85% {
+    content: 'dadadadadadadadadada'
+  }
+  90% {
+    content: 'dadadadadadadadadadada'
+  }
+  95% {
+    content: 'dadadadadadadadadadadada'
+  }
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
-
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
-
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
-
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
+@keyframes secretName {
+  0% {
+    opacity: 0;
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
